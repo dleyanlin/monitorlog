@@ -1,12 +1,12 @@
 #!/bin/bash
-#version 1.0
+#version 1.1
 #2012-05-14
 
-EMAILADDRESS="psoqa3@hzlab.qa.webex.com"
+EMAILADDRESS="xxx@xx.com"
 EMAILSUBJECT="***** We've got a problem *****"
-MESSAGEBODY="/home/psoqa/error.txt"
-SEARCHSTRING='2994'
-PSOLOG="/wbx_log/pso-test.log"
+MESSAGEBODY="errot_path/error.txt"
+SEARCHSTRING='string'
+PSOLOG="/log_path/xxx.log"
 
 cat /dev/null > $MESSAGEBODY
 
