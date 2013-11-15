@@ -1,4 +1,5 @@
 monitorlog
 ==========
 
-monitor log when error and send logs to releated people
+monitor log when error
+send the log to related peoply by email
