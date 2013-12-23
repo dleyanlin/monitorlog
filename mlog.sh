@@ -6,23 +6,23 @@ EMAILADDRESS="xxx@xx.com"
 EMAILSUBJECT="***** We've got a problem *****"
 MESSAGEBODY="errot_path/error.txt"
 SEARCHSTRING='string'
-PSOLOG="/log_path/xxx.log"
+LOGPATH="/log_path/xxx.log"
 
 cat /dev/null > $MESSAGEBODY
 
-LASTOCCURANCE=`egrep -n "$SEARCHSTRING" $PSOLOG | tail -1`
+LASTOCCURANCE=`egrep -n "$SEARCHSTRING" $LOGPATH | tail -1`
 LASTLINE=`echo $LASTOCCURANCE | cut -d':' -f1`
 
 while true
 do
 
-END=`wc -l $PSOLOG | cut -d' ' -f1`
+END=`wc -l $LOGPATH | cut -d' ' -f1`
 if [ $END -lt $LASTLINE ]
 then
   LASTLINE=$END
 fi
 #echo $LASTLINE
-tail -n +$LASTLINE $PSOLOG | grep -C $LASTLINE "$SEARCHSTRING" > $MESSAGEBODY
+tail -n +$LASTLINE $LOGPATH | grep -C $LASTLINE "$SEARCHSTRING" > $MESSAGEBODY
 
 if [ `stat -c %s $MESSAGEBODY` -ne '0' -a $LASTLINE -ne $END ]
 then
